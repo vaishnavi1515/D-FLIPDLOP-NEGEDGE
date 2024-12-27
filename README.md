@@ -27,18 +27,62 @@ Therefore, D flip-flop always Hold the information, which is available on data i
 Next state of D flip-flop is always equal to data input, D for every positive transition of the clock signal. Hence, D flip-flops can be used in registers, shift registers and some of the counters.
 
 **Procedure**
+1.Defibe Module:Define a verilog module for the D flip-flop with inputs(D,CLK)and outputs(Q,Q_bar).
 
-/* write all the steps invloved */
+2.Declare Inputs and Outputs:Declare input and output ports for the module.
+
+3.Implement Flip-flop logic:write verilog code to implement the D flip-flop logic based on its functional table.Use a synchronous always @(posedge CLK)block to trigger the flip-flop on the positive edge of th clock single.
+
+4.Simulate using testbench:write a verilog testbench to behavior of the D dlip-flop under different input conditions.
+
+5.Apply INPUT Stimuli:In the testbench,apply various combinations of input stimuli(D,CLK)to cover all possible inout states.
+
+6.verify output behavior:verify that the output behavior of the D flip-flop matches the expected behavior defined y its functional table.
+
+7.Check for race conditions: ensure that there are no race conditions or undefined states in the design by analyzing the timing and seqence of input changes.
 
 **PROGRAM**
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+Program for flipflops and verify its truth table in quartus using Verilog programming. 
 
-**RTL LOGIC FOR FLIPFLOPS**
+Developed by:  vaishnavi V
+
+RegisterNumber:2400560
+
+~~~
+module d_ff_neg_edge (d, clk, rst, q);
+
+  input d, clk, rst;
+  
+  output reg q;
+
+  always @(negedge clk or posedge rst) begin
+  
+    if (rst)
+    
+      q <= 0; // Reset the flip-flop
+      
+    else
+    
+      q <= d; // D input is passed to Q on the negative clock edge
+      
+  end
+  
+endmodule
+~~~
 
 
-**TIMING DIGRAMS FOR FLIP FLOPS**
+**RTL**
+
+![WhatsApp Image 2024-12-24 at 00 30 49_94cb8193](https://github.com/user-attachments/assets/e0ca2097-b1fb-4f32-8a26-5700a6eb821c)
+
+
+
+**output**
+
+![WhatsApp Image 2024-12-24 at 00 29 08_96f7de09](https://github.com/user-attachments/assets/38b20a9e-b1fa-412f-bb47-74bdaa7b4fa7)
+
 
 
 **RESULTS**
+Thus the program to implement a D flipflop using verilog and validating their functionality using their functional tables.
